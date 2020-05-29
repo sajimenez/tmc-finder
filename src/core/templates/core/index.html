@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+{% load i18n %}
+<head>
+    <title>{% trans "TMC Finder" %}</title>
+</head>
+
+<body>
+    <h1>{% trans "TMC Finder" %}</h1>
+    <form action="{% url 'search' %}" method="get">
+        {{ form.as_p }}
+        <input type="submit" value="{% trans "Search" %}">
+    </form>
+
+    {% if msg %}<h3>{{ msg }}</h3>{% endif %}
+
+</body>
+
+</html>

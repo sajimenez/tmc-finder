@@ -1,6 +1,13 @@
 import requests
 import os
 
+from dateutil.relativedelta import relativedelta
+from django.utils.translation import gettext_lazy as _
+
+
+class SbifException(Exception):
+    pass
+
 
 def parse_date(date):
     """
@@ -8,15 +15,9 @@ def parse_date(date):
     If is so, returns the previous month and its corresponding year. Otherwise,
     Returns the current month and its corresponding year
     """
-    year = date.year
-    month = date.month
     if date.day < 15:
-        if month == 1:
-            month = 12
-            year -= 1
-        else:
-            month -= 1
-    return year, month
+        date -= relativedelta(months=1)
+    return date.year, date.month
 
 
 def get_tmcs_by_date(date):
@@ -32,6 +33,9 @@ def get_tmcs_by_date(date):
     rsp = requests.get(url, params=params)
 
     if rsp.status_code != 200:
-        raise Exception('Not valid response from SBIF')
+        print(rsp.content)
+        if rsp.status_code == 404:
+            raise SbifException(_('No data found in SBIF for the given date'))
+        raise SbifException(_('A problem occurred with the SBIF service'))
 
     return rsp.json()['TMCs']

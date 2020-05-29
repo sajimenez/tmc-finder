@@ -10,6 +10,7 @@ flake8 = "*"
 django = "~=3.0"
 python-dotenv = "~=0.13"
 requests = "~=2.23"
+python-dateutil = "~=2.8"
 
 [requires]
 python_version = "3.7"
