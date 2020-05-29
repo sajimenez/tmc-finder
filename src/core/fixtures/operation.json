@@ -1,0 +1,80 @@
+[
+    {
+        "model": "core.operation",
+        "pk": 1,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional de menos de 90 días",
+            "subtitle": "Inferiores o iguales al equivalente de 5.000 unidades de fomento",
+            "code": "26",
+            "term_min": null,
+            "term_max": 90,
+            "amount_min": null,
+            "amount_max": 5000.0
+        }
+    },
+    {
+        "model": "core.operation",
+        "pk": 2,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional de menos de 90 días",
+            "subtitle": "Superiores al equivalente de 5.000 unidades de fomento",
+            "code": "25",
+            "term_min": null,
+            "term_max": 90,
+            "amount_min": 5000.0,
+            "amount_max": null
+        }
+    },
+    {
+        "model": "core.operation",
+        "pk": 3,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional 90 días o más",
+            "subtitle": "Inferiores o iguales al equivalente de 50 unidades de fomento",
+            "code": "45",
+            "term_min": 90,
+            "term_max": null,
+            "amount_min": null,
+            "amount_max": 50.0
+        }
+    },
+    {
+        "model": "core.operation",
+        "pk": 4,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional 90 días o más",
+            "subtitle": "Inferiores o iguales al equivalente de 200 unidades de fomento y superiores al equivalente de 50 unidades de fomento",
+            "code": "44",
+            "term_min": 90,
+            "term_max": null,
+            "amount_min": 50.0,
+            "amount_max": 200.0
+        }
+    },
+    {
+        "model": "core.operation",
+        "pk": 5,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional 90 días o más",
+            "subtitle": "Inferiores o iguales al equivalente de 5.000 unidades de fomento y superiores al equivalente de 200 unidades de fomento",
+            "code": "35",
+            "term_min": 90,
+            "term_max": null,
+            "amount_min": 200.0,
+            "amount_max": 5000.0
+        }
+    },
+    {
+        "model": "core.operation",
+        "pk": 6,
+        "fields": {
+            "title": "Operaciones no reajustables en moneda nacional 90 días o más",
+            "subtitle": "Superiores al equivalente de 5.000 unidades de fomento",
+            "code": "34",
+            "term_min": 90,
+            "term_max": null,
+            "amount_min": 5000.0,
+            "amount_max": null
+        }
+    }
+]
