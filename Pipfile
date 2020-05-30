@@ -14,6 +14,7 @@ python-dateutil = "~=2.8"
 whitenoise = "~=5.1"
 gunicorn = "~=20.0"
 psycopg2 = "~=2.8"
+dj-database-url = "~=0.5"
 
 [requires]
 python_version = "3.7"
