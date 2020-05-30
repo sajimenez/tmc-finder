@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath src TmcFinder.wsgi.application
+web: gunicorn ----chdir src TmcFinder.wsgi
