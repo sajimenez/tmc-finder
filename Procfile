@@ -1,1 +1,1 @@
-web: gunicorn ----chdir src TmcFinder.wsgi
+web: gunicorn --chdir src TmcFinder.wsgi
