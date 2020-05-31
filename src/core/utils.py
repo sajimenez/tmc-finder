@@ -30,12 +30,12 @@ def get_tmcs_by_date(date):
         'formato': 'json'
     }
 
-    rsp = requests.get(url, params=params)
+    rsp = requests.get(url, params=params, timeout=float(os.getenv('SBIF_TIMEOUT_SECS', 10)))
 
     if rsp.status_code != 200:
         print(rsp.content)
         if rsp.status_code == 404:
             raise SbifException(_('No data found in SBIF for the given date'))
-        raise SbifException(_('A problem occurred with the SBIF service'))
+        raise
 
     return rsp.json()['TMCs']

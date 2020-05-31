@@ -1,19 +1,64 @@
 <!DOCTYPE html>
 <html>
 {% load i18n %}
+{% load static %}
 <head>
+    <meta charset="UTF-8">
     <title>{% trans "TMC Finder" %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <h1>{% trans "TMC Finder" %}</h1>
-    <form action="{% url 'search' %}" method="get">
-        {{ form.as_p }}
-        <input type="submit" value="{% trans "Search" %}">
+    <form action="{% url 'search' %}" method="get" id="id_form">
+        <p class="fieldWrapper">
+            {{ form.term.label_tag }}
+            {{ form.term }}
+            <ul class="errorList" id="id_term_errors"></ul>
+        </p>
+        <p class="fieldWrapper">
+            {{ form.amount.label_tag }}
+            {{ form.amount }}
+            <ul class="errorList" id="id_amount_errors"></ul>
+        </p>
+        <p class="fieldWrapper">
+            {{ form.date.label_tag }}
+            {{ form.date }}
+            <ul class="errorList" id="id_date_errors"></ul>
+        </p>
+        <input id="id_submit" type="submit" value="{% trans "Search" %}">
     </form>
 
-    {% if msg %}<h3>{{ msg }}</h3>{% endif %}
+    <div id="id_result"></div>
 
 </body>
+
+<script>
+    $('#id_form').submit(function (e) {
+        $('#id_result').html('<h3><img src="{% static "loading.gif" %}"></h3>');
+        $('#id_term_errors').html('');
+        $('#id_amount_errors').html('');
+        $('#id_date_errors').html('');
+        $("#id_submit").attr('disabled','disabled');
+        e.preventDefault();
+        $.ajax({
+            type: "GET",
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+        }).done(function (rsp) {
+            $('#id_result').html('<h3>'+rsp.message+'</h3>');
+            $("#id_submit").removeAttr('disabled');
+        }).fail(function (rsp) {
+            $('#id_result').html('');
+            for (let key in rsp.responseJSON) {;
+                const field = rsp.responseJSON[key];
+                for (let i in field){
+                    $('#id_'+key+'_errors').append('<li>'+field[i]+'</li>');
+                }
+            }
+            $("#id_submit").removeAttr('disabled');
+        });
+    });
+</script>
 
 </html>
