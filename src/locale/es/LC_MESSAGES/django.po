@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-31 20:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: TmcFinder/settings.py:132
+msgid "English"
+msgstr "Inglés"
+
+#: TmcFinder/settings.py:133
+msgid "Spanish"
+msgstr "Español"
+
+#: core/forms.py:20
+msgid "Max date allowed is {}"
+msgstr "Fecha máxima permitida es {}"
+
+#: core/forms.py:26
+msgid "Term in days"
+msgstr "Plazo en días"
+
+#: core/forms.py:27
+msgid "Amount in UF"
+msgstr "Monto en UF"
+
+#: core/forms.py:29
+msgid "Date"
+msgstr "Fecha"
+
+#: core/forms.py:32
+msgid "YYYY-MM-DD"
+msgstr "DD/MM/AAAA"
+
+#: core/forms.py:44
+msgid "SBIF service timed out"
+msgstr "Timeout del servicio SBIF"
+
+#: core/forms.py:46
+msgid "A problem occurred with the SBIF service"
+msgstr "Ocurrió un problema con el servicio SBIF"
+
+#: core/forms.py:50
+msgid "TMC value: {}%"
+msgstr "Tasa Máxima Convencional (TMC): {}%"
+
+#: core/forms.py:52
+msgid "TMC was not found for the given parameters"
+msgstr "No se encontró la TMC para los parámetros ingresados"
+
+#: core/models.py:22
+msgid "operation"
+msgstr "operación"
+
+#: core/models.py:23
+msgid "operations"
+msgstr "operaciones"
+
+#: core/models.py:25
+msgid "code"
+msgstr "código"
+
+#: core/models.py:26
+msgid "title"
+msgstr "título"
+
+#: core/models.py:27
+msgid "subtitle"
+msgstr "subtítulo"
+
+#: core/models.py:28
+msgid "minimun term in days (inclusive)"
+msgstr "plazo mínimo en días (inclusive)"
+
+#: core/models.py:29
+msgid "maximun term in days"
+msgstr "plazo máximo en días"
+
+#: core/models.py:30
+msgid "minimun amount in UF"
+msgstr "monto mínimo en UF"
+
+#: core/models.py:32
+msgid "maximun amount in UF (inclusive)"
+msgstr "monto máximo en UF (inclusive)"
+
+#: core/templates/core/index.html:7 core/templates/core/index.html:12
+msgid "TMC Finder"
+msgstr "Buscador TMC"
+
+#: core/templates/core/index.html:29
+msgid "Search"
+msgstr "Buscar"
+
+#: core/utils.py:38
+msgid "No data found in SBIF for the given date"
+msgstr "No se encontró data en SBIF para la fecha ingresada"

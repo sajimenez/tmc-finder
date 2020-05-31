@@ -6,6 +6,7 @@ from django.core.validators import MinValueValidator
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from dateutil.relativedelta import relativedelta
+from django.utils import formats
 
 from .utils import get_tmcs_by_date, SbifException
 from .models import Operation
@@ -16,7 +17,7 @@ def validate_max_date(value):
 
     if value > max_date:
         raise ValidationError(
-            _('Max date allowed is {}'.format(max_date)),
+            _('Max date allowed is {}').format(formats.date_format(max_date, 'SHORT_DATE_FORMAT')),
             params={'value': value},
         )
 
@@ -28,6 +29,7 @@ class LoanForm(forms.Form):
         label=_('Date'),
         initial=date.today,
         validators=[validate_max_date],
+        widget=forms.DateInput(attrs={'placeholder': _('YYYY-MM-DD')}),
     )
 
     def find_tmc(self):
