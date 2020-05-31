@@ -1,4 +1,5 @@
 from datetime import date
+from requests.exceptions import Timeout
 
 from django import forms
 from django.core.validators import MinValueValidator
@@ -36,7 +37,11 @@ class LoanForm(forms.Form):
         try:
             tmcs = get_tmcs_by_date(data['date'])
         except SbifException as e:
-            return e
+            return str(e)
+        except Timeout:
+            return _('SBIF service timed out')
+        except Exception:
+            return _('A problem occurred with the SBIF service')
 
         for tmc in tmcs:
             if tmc['Tipo'] == code:
